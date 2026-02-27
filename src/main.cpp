@@ -1,4 +1,4 @@
-#include <encryption/caesar.h>
+#include <encryption/polybius.h>
 
 #include <iostream>
 #include <string>
@@ -8,10 +8,10 @@ using namespace std;
 int main() {
     string raw = "abcdefg";
 
-    caesar cipher;
-    string ch = cipher.encrypt(raw, 7);
+    polybius cipher;
+    string ch = cipher.encrypt(raw);
     cout << ch << '\n';
-	string che = cipher.decrypt(ch, 7);
+    string che = cipher.decrypt(ch);
     cout << che << '\n';
     // cout << "==================" << '\n';
     // cout << cipher.decrypt(ch, 3);

@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 string caesar::encrypt(string raw, int shift){
 	double lnt = raw.length();
 	string enc;

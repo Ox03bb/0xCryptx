@@ -2,6 +2,8 @@
 #define CAESER_H
 
 #include <string>
+#include <vector>
+
 
 class caesar {
   public:
