@@ -28,6 +28,28 @@ string vigenere::encrypt(string raw,string  key){
 };
 
 
+string vigenere::decrypt(string raw, string key){
+    int8_t cnt = 0;
+    int8_t ln_key = key.length();
+
+    transform(key.begin(), key.end(), key.begin(), ::toupper);
+
+    string dec;
+
+    for (char c : raw){
+        if ((c >= 97 && c <= 122 ) ||( c >= 65 && c <= 90 ) ){
+            if (cnt == ln_key){
+                cnt = 0;
+            }
+            dec += k_sub(c,key[cnt]);
+            cnt ++;
+        }else{
+            dec += c;
+        }
+    }
+    return dec ;
+};
+
 // helper 
 
 char vigenere::k_adder(char c, char k){
@@ -46,6 +68,7 @@ char vigenere::k_adder(char c, char k){
 
 char vigenere::k_sub(char c, char k){
     int8_t i = 0;
+    k = k - 65;
     if (c >= 97 && c <= 122 ){
 		i = 97;
 	}else if( c >= 65 && c <= 90 ){

@@ -9,12 +9,13 @@ int main() {
     string raw = "AbcdE";
 
     vigenere cipher;
-    string ch = cipher.encrypt(raw, "KEY");
+    string ch = cipher.encrypt(raw, "key");
     cout << ch << '\n';
-    // string che = cipher.decrypt(ch);
-    // cout << che << '\n';
-    // cout << "==================" << '\n';
-    // cout << cipher.decrypt(ch, 3);
+	
+	cout << "==================" << '\n';
+
+    string che = cipher.decrypt(ch,"key");
+    cout << che << '\n';
 
     return 0;
 }
