@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -I./includes
+CXXFLAGS = -std=c++23 -Wall -Wextra -I./includes
 LDFLAGS = 
 TARGET = 0xCryptx
 SRC_DIR = src

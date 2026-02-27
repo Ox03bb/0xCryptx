@@ -8,26 +8,18 @@
 ├── Makefile
 ├── README.md
 ├── includes/
-│   ├── utils.cpp
-│   └── encryption/
-│       └── scytale.h
 ├── src/
 │   ├── main.cpp
 │   ├── cuda/
-│   │   └── cuda.cpp
 │   ├── encryption/
-│   │   └── scytale.cpp
 │   ├── hashing/
-│   │   └── md5.cpp
 │   └── utils/
-│       └── utils.cpp
-└── obj/              (generated during build)
 ```
 
 ## Building and Running
 
 ### Prerequisites
-- C++ compiler with C++17 support (g++ recommended)
+- C++ compiler with C++23 support (g++ recommended)
 - Make
 
 ### Build
