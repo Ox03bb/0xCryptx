@@ -1,4 +1,4 @@
-#include <encryption/scytale.h>
+#include <encryption/caesar.h>
 
 #include <iostream>
 #include <string>
@@ -6,13 +6,15 @@
 using namespace std;
 
 int main() {
-    string raw = "this is a text";
+    string raw = "abcdefg";
 
-    scytale cipher;
-    string ch = cipher.encrypt(raw, 3);
+    caesar cipher;
+    string ch = cipher.encrypt(raw, 7);
     cout << ch << '\n';
-    cout << "==================" << '\n';
-    cout << cipher.decrypt(ch, 3);
+	string che = cipher.decrypt(ch, 7);
+    cout << che << '\n';
+    // cout << "==================" << '\n';
+    // cout << cipher.decrypt(ch, 3);
 
     return 0;
 }

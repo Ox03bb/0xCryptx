@@ -6,11 +6,11 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 # Source files
-SRCS = $(SRC_DIR)/main.cpp \
-       $(SRC_DIR)/cuda/cuda.cpp \
-       $(SRC_DIR)/encryption/scytale.cpp \
-       $(SRC_DIR)/hashing/md5.cpp \
-       $(SRC_DIR)/utils/utils.cpp
+SRCS = $(wildcard $(SRC_DIR)/cuda/*.cpp) \
+       $(wildcard $(SRC_DIR)/encryption/*.cpp) \
+       $(wildcard $(SRC_DIR)/hashing/*.cpp) \
+       $(wildcard $(SRC_DIR)/utils/*.cpp) \
+       $(SRC_DIR)/main.cpp
 
 # Object files
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
