@@ -31,4 +31,46 @@ uint32_t md5::combine(state s, uint32_t part, uint8_t i) {
     uint32_t tmp = s.A + f;
 
     tmp += part;
+
+	return md5::H(tmp, s.B, i);
+};
+
+
+vector<array<uint32_t, 16>> md5::chunk(string raw) {
+    size_t original_len = raw.size();
+    uint64_t bit_len = original_len * 8;
+
+    // Add '1' bit (0x80), then pad with zeros until length ≡ 56 mod 64
+    raw += static_cast<char>(0x80);
+    while ((raw.size() % 64) != 56) {
+        raw += static_cast<char>(0x00);
+    }
+
+    // Append original length in bits as 64-bit little-endian integer
+    for (int i = 0; i < 8; ++i) {
+        raw += static_cast<char>((bit_len >> (8 * i)) & 0xFF);
+    }
+
+    vector<array<uint32_t, 16>> chunks;
+    size_t num_chunks = raw.size() / 64;
+
+    for (size_t i = 0; i < num_chunks; ++i) {
+        array<uint32_t, 16> block{};
+        for (size_t j = 0; j < 16; ++j) {
+            // Each block is 4 bytes, little-endian
+            size_t idx = i * 64 + j * 4;
+            block[j] = static_cast<uint32_t>(static_cast<unsigned char>(raw[idx])) |
+                       (static_cast<uint32_t>(static_cast<unsigned char>(raw[idx + 1])) << 8) |
+                       (static_cast<uint32_t>(static_cast<unsigned char>(raw[idx + 2])) << 16) |
+                       (static_cast<uint32_t>(static_cast<unsigned char>(raw[idx + 3])) << 24);
+        }
+        chunks.push_back(block);
+    }
+
+    return chunks;
+}
+
+
+string hash(string raw, string key){
+
 };

@@ -3,6 +3,8 @@
 
 #include <cstdint>
 #include <string>
+#include <vector>
+#include <array>
 
 using namespace std;
 
@@ -49,6 +51,8 @@ class md5 {
     static uint32_t combine(state s, uint32_t part, uint8_t i);
     static uint32_t F(state s, uint8_t i);
     static uint32_t H(uint32_t in, uint32_t B, uint8_t i);
+
+	static vector<array<uint32_t, 16>> chunk(string raw);
 };
 
 #endif // MD5_H
