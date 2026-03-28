@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 
-
 class caesar {
   public:
     static std::string encrypt(std::string raw, int shift);

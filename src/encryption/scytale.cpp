@@ -33,7 +33,6 @@ string scytale::encrypt(string raw, int rows, char extra) {
     return read_col(arr);
 }
 
-
 string scytale::decrypt(string raw, int rows, char extra) {
     raw.erase(remove(raw.begin(), raw.end(), extra), raw.end());
 
@@ -80,7 +79,6 @@ string scytale::read_col(vector<vector<char>> arr) {
     }
     return str;
 }
-
 
 // debug
 
