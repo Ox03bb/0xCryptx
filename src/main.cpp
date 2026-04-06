@@ -1,4 +1,4 @@
-#include <encryption/vigenere.h>
+#include <hashing/md5.h>
 
 #include <iostream>
 #include <string>
@@ -6,16 +6,11 @@
 using namespace std;
 
 int main() {
-    string raw = "AbcdE";
+    string raw = "aa";
 
-    vigenere cipher;
-    string ch = cipher.encrypt(raw, "key");
+    md5 cipher;
+    string ch = cipher.hash(raw);
     cout << ch << '\n';
-	
-	cout << "==================" << '\n';
-
-    string che = cipher.decrypt(ch,"key");
-    cout << che << '\n';
 
     return 0;
 }
